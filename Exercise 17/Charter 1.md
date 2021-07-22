@@ -11,7 +11,8 @@ Validate the consistence of retrieved info.
 Validate error handling.
 
 * Bugs:
-1. When requesting sending app-locale = de_DE, the API response has a null value for "uptime" key.
+1. When requesting with app-locale = de_DE, the API response has a null value for "uptime" key.
+
 REQUEST:
 ```
 curl --location --request GET 'https://4s9rh46bpe.execute-api.eu-central-1.amazonaws.com/test//healthcheck' \
