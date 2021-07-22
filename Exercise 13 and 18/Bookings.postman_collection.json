@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "55184565-357a-4702-9703-7b3f5e1c127a",
+		"name": "Bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Healthcheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "correlation-id",
+						"value": "123456",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/healthcheck",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginDE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							"",
+							"pm.test(\"login-token header is present\", () => {",
+							"  pm.response.to.have.header(\"login-token\");",
+							"});",
+							"",
+							"pm.globals.set(\"login-token\", pm.response.headers.get(\"login-token\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "device-os",
+						"value": "{{device-os}}",
+						"type": "text"
+					},
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}auth/login",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginUK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							"",
+							"pm.test(\"login-token header is present\", () => {",
+							"  pm.response.to.have.header(\"login-token\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "device-os",
+						"value": "{{device-os}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}auth/login?bookingRef={{booking-id}}&surname={{surname}}",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "bookingRef",
+							"value": "{{booking-id}}"
+						},
+						{
+							"key": "surname",
+							"value": "{{surname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bookings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "login-token",
+						"value": "{{login-token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "device-os",
+						"value": "{{device-os}}",
+						"type": "text"
+					},
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/v1/bookings",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bookings by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "login-token",
+						"value": "{{login-token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "0qNSzqieHI5M36LLgY7Y85Zco0SMXKyr37MIOSAG",
+						"type": "text"
+					},
+					{
+						"key": "device-os",
+						"value": "{{device-os}}",
+						"type": "text"
+					},
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/v1/bookings/{{booking-id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"bookings",
+						"{{booking-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bookings Weather",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Mandatory headers are correct\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"  pm.expect(pm.response.headers.get('Connection')).to.eql('keep-alive');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "login-token",
+						"value": "{{login-token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "device-os",
+						"value": "{{device-os}}",
+						"type": "text"
+					},
+					{
+						"key": "app-locale",
+						"value": "{{app-locale}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/v1/bookings/{{booking-id}}/weather",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"bookings",
+						"{{booking-id}}",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
