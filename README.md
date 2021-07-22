@@ -5,10 +5,10 @@ This project contains aswers to topics about Postman concepts.
 ### 1. Please provide your reference number:
 001
 
-## 2.  Have you used Postman before?
+### 2.  Have you used Postman before?
 Yes
 
-## 3. Have you used Swagger before?
+### 3. Have you used Swagger before?
 Yes
 
 ### 4. Get endpoint parameters for Login DE: Using the provided swagger, please tell us all the parameters for Login DE endpoint, including if they are required, type of parameter e.g. header and allowed value(s)
@@ -25,7 +25,6 @@ Enables the users to work together sharing and organizing their projects. It fac
 Helps with the organization of the requests. Provides an easier organization of requests and the users can put request from the same context into a collection.
 
 ### 7. Environment:
-
 Resource that allows the customization of requests to a specified scope. Is useful for enabling different setups without the need to change information in requests.
 
 ### 8. Sandbox and Test Scripts:
@@ -50,9 +49,11 @@ Results in folder: Exercise 12
 Results in folder: Exercise 13 and 18
 
 ### 14. Did you use the import functionality to create the collection?
+
 Yes
 
 ### 15. Reading response results in postman:
+
 Results in folder: Exercise 15
 
 ### 16. Analyse and improve testing requirements for the following scenario: A new API has been created to standardise Login endpoint for all markets. The request is now POST only with body parameters: bookingRef, surname, username and password. A new header parameter "appName" has also been added to ensure correct processing of the data. Tester tries to login with each market and closes the testing ticket. What other tests could the tester do to ensure that API is working correctly?
@@ -74,11 +75,8 @@ Results in folder: Exercise 15
 * Try to login sending a body with invalid surname
 * Try to login sending a body using not expected data types into parameters
 
-## 17. Test the APIs:
-Test all of the APIs using Exploratory Testing / Session Based test techniques. This is one of the more important
-questions in the Test so spend plenty of time on it! Document all your findings including your test ideas, unresolved
-questions, positive/negative results, headers, payloads, values etc. Upload all your documentation here. Your ability
-to organise the findings in a clear and structured way will also be judged.
+## 17. Test the APIs: Test all of the APIs using Exploratory Testing / Session Based test techniques.
+
 Results in folder: Exercise 17
 
 ### 18. Validate headers for all requests:
