@@ -2,7 +2,7 @@
 
 This project contains aswers to topics about exploratory testing.
 
-## Observations about the API documentation:
+## Notes about the API documentation:
 The API should document error responses. All error responses are described as default.
 The header correlation-id isn't returned in responses and its descritions could be better detailed in the documentation.
 
@@ -18,9 +18,30 @@ Validate the consistence of retrieved info.
 Validate error handling.
 * Bugs:
 1. When requesting sending app-locale = de_DE, the API response has a null value for "uptime" key.
-2. The API returns error code 500 "Internal Server Error" when sending specials characters in correlation-id header.
+REQUEST:
+```
+curl --location --request GET 'https://4s9rh46bpe.execute-api.eu-central-1.amazonaws.com/test//healthcheck' \
+--header 'app-locale: de_DE' \
+--header 'x-api-key: 0qNSzqieHI5M36LLgY7Y85Zco0SMXKyr37MIOSAG' \
+--header 'Accept: application/json' \
+--header 'correlation-id: 123456'
+```
+RESPONSE:
+
+```
+{
+    "apiVersion": "1.0.0",
+    "market": "DE",
+    "status": {
+        "health": "HEALTHY",
+        "uptime": null
+    }
+}
+```
+ 
+2. The API returns error code 500 "Internal Server Error" when sending specials characters in correlation-id header. Logs available in:
 * Issues:
-The documentation doesn't provide details response body.
+The documentation doesn't provide details about the expected response body.
 
 ### Charter 2: 
 Explore authentication rout /auth/login - Login DE	
