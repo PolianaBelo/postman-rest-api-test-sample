@@ -75,7 +75,7 @@ Results in folder: Exercise 15
 * Try to login sending a body with invalid surname
 * Try to login sending a body using not expected data types into parameters
 
-## 17. Test the APIs: Test all of the APIs using Exploratory Testing / Session Based test techniques.
+### 17. Test the APIs: Test all of the APIs using Exploratory Testing / Session Based test techniques.
 
 Results in folder: Exercise 17
 
