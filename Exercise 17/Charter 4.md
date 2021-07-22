@@ -42,6 +42,7 @@ RESPONSE:
 }
 ```
 2. The API returns 200 when sending a request without the required header x-api-key.
+
 REQUEST:
 ```
 curl --location --request GET 'https://4s9rh46bpe.execute-api.eu-central-1.amazonaws.com/test//v1/bookings' \
@@ -69,6 +70,7 @@ RESPONSE:
 }
 ```
 3. The API returns 200 when using a not available value in device-os header. According to the documentation only android and ios are expected.
+
 REQUEST:
 ```
 curl --location --request GET 'https://4s9rh46bpe.execute-api.eu-central-1.amazonaws.com/test//v1/bookings' \
