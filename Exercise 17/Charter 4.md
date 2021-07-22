@@ -13,6 +13,7 @@ Validate the provided bookings sending differente valid values to device-os and 
 
 * Bugs:
 1. The API is returning the same booking twice when sending request from device-os ios and locale de_DE.
+
 REQUEST:
 ```
 curl --location --request GET 'https://4s9rh46bpe.execute-api.eu-central-1.amazonaws.com/test//v1/bookings' \
